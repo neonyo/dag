@@ -4,10 +4,10 @@ import "github.com/zeromicro/go-zero/core/threading"
 
 type (
 	Starter interface {
-		Start(dag *DAG)
+		Start(dag *DAG) error
 	}
 	Run interface {
-		Run()
+		Run() error
 	}
 	// Service is the interface that groups Start and Stop methods.
 	Service interface {
