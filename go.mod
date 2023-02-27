@@ -1,4 +1,4 @@
-module github.com/neonyo/helper
+module github.com/neonyo/dag
 
 go 1.20
 
