@@ -6,12 +6,12 @@ type DAG struct {
 	Vertices map[string]*vertex
 }
 
-func (dag *DAG) AddVertex(id string, value interface {}) error {
+func (dag *DAG) AddVertex(id string, service Service) error {
 	if _, ok := dag.Vertices[id]; ok {
 		return fmt.Errorf("dag already contains a vertex with the id %v, so it won't be added", id)
 	}
 
-	dag.Vertices[id] = newVertex(id, value)
+	dag.Vertices[id] = newVertex(id, service)
 	return nil
 }
 
@@ -58,7 +58,7 @@ func (dag *DAG) EdgeExists(fromVertexId, toVertexId string) (bool, error) {
 	return false, nil
 }
 
-func (dag *DAG) GetVertex(id string) (*vertex) {
+func (dag *DAG) GetVertex(id string) *vertex {
 	if v, ok := dag.Vertices[id]; ok {
 		return v
 	}

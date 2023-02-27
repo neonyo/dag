@@ -2,14 +2,14 @@ package dag
 
 type vertex struct {
 	Id       string
-	Value    interface{}
+	Value    Service
 	Children []*vertex
 }
 
-func newVertex(id string, value interface{}) *vertex {
+func newVertex(id string, service Service) *vertex {
 	return &vertex{
 		Id:       id,
-		Value:    value,
+		Value:    service,
 		Children: make([]*vertex, 0),
 	}
 }
